@@ -27,6 +27,19 @@ describe('All tests from productsService', function () {
       expect(result).to.be.deep.equal(undefined)
     })
   })
+  describe('Tests from function createProduct', function () {
+    it('Test with sucess', async function () {
+      sinon.stub(productsModel, 'createProduct').resolves(1);
+      sinon.stub(productsModel, 'findById').resolves(resultFindByIdMock)
+      const result = await productsService.createProduct(resultFindByIdMock);
+      expect(result).to.be.deep.equal(resultFindByIdMock)
+    })
+    // it('Test without sucess', async function () {
+    //   sinon.stub(productsModel, 'findById').resolves(undefined);
+    //   const result = await productsService.findById(1);
+    //   expect(result).to.be.deep.equal(undefined)
+    // })
+  })
 })
 
 
