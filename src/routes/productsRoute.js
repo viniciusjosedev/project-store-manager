@@ -1,8 +1,8 @@
-const express = require('express');
+const { Router } = require('express');
 
 const { productsController } = require('../controllers/index');
 
-const route = express.Router();
+const route = new Router();
 
 route.get('/products', productsController.findAll);
 
