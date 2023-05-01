@@ -1,6 +1,6 @@
 const resultFindByIdMock = [
-  { saleId: 1, productId: 1, quantity: 5 },
-  { saleId: 1, productId: 2, quantity: 10 }
+  { saleId: 1, productId: 1, quantity: 5, date: '2022', date: '2022' },
+  { saleId: 1, productId: 2, quantity: 10, date: '2002', date: '2022' }
 ];
 
 const insertValues = [{

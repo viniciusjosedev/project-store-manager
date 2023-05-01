@@ -14,12 +14,25 @@ const insert = async (object) => {
 
 const findById = async (id) => {
   const [result] = await connection.execute(
-    'SELECT * FROM sales_products WHERE sale_id = ?', [id],
+    `SELECT sp.sale_id, sp.product_id, sp.quantity, s.date FROM sales_products sp 
+    INNER JOIN sales s
+    ON sp.sale_id = s.id
+    HAVING sale_id = ?;`, [id],
   );
   return camelize(result);
+};
+
+const findAll = async () => {
+  const [result] = await connection.execute(
+    `SELECT sp.sale_id, sp.product_id, sp.quantity, s.date FROM sales_products sp 
+    INNER JOIN sales s
+    ON sp.sale_id = s.id;`,
+  );
+  return result;
 };
 
 module.exports = {
   findById,
   insert,
+  findAll,
 };
