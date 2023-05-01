@@ -76,22 +76,6 @@ describe('All tests from productsController', function () {
       const result = await productsController.createProduct(req, res);
       expect(result).to.be.deep.equal(resultFindByIdMock)
     })
-    // it('Test without sucess', async function () {
-    //   sinon.stub(productsService, 'findById').resolves(undefined);
-    //   const req = {
-    //     params: { id: '1' }
-    //   };
-    //   const res = {
-    //     status: () => { },
-    //     json: () => { },
-    //   };
-
-    //   sinon.stub(res, 'status').returns(res);
-    //   sinon.stub(res, 'json').returns({ message: "Product not found" });
-
-    //   const result = await productsController.findById(req, res);
-    //   expect(result).to.be.deep.equal({ message: "Product not found" })
-    // })
   })
 })
 

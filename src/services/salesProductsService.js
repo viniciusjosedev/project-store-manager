@@ -1,11 +1,11 @@
 const { salesModel, salesProductsModel } = require('../models/index');
 
 const insert = async (data) => {
-  const id = await salesModel.insert();
-  await salesProductsModel.insert({ ...data, id });
-  const result = await salesProductsModel.findById(id);
+  const saleId = await salesModel.insert();
+  await Promise.all(data.map((e) => salesProductsModel.insert({ ...e, saleId })));
+  const result = await salesProductsModel.findById(saleId);
   result.forEach((_e, i) => delete result[i].saleId);
-  return { id, itemsSold: result };
+  return { id: saleId, itemsSold: result };
 };
 
 module.exports = {

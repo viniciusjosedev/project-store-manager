@@ -11,7 +11,18 @@ describe('All tests from salesProductsController', function () {
   describe('Tests from function insert', function () {
     it('Test with sucess', async function () {
       sinon.stub(salesProductsService, 'insert').resolves(resultSalesProductsService);
-      const req = {};
+      const req = {
+        body: [
+          {
+            "productId": 1,
+            "quantity": 1
+          },
+          {
+            "productId": 2,
+            "quantity": 5
+          }
+        ]
+      };
       const res = {
         status: () => { },
         json: () => { },

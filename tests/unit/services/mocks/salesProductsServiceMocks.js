@@ -3,10 +3,10 @@ const resultFindByIdMock = [
   { saleId: 1, productId: 2, quantity: 10 }
 ];
 
-const insertValues = {
+const insertValues = [{
   productId: 1,
   quantity: 1
-};
+}];
 
 const resultSalesProductsService = {
   "id": 1,

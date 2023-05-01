@@ -3,12 +3,12 @@ const snakeize = require('snakeize');
 const connection = require('./connection');
 
 const insert = async (object) => {
-  const dataSnakeize = Object.keys(snakeize(object)).join(', ');
+  const dataSnakeize = Object.keys(snakeize(object)).sort().join(', ');
   const quantData = Object.keys(object).map((_e) => '?').join(', ');
   const [{ insertId }] = await connection.execute(
     `INSERT INTO sales_products(${dataSnakeize}) VALUES (${quantData})`,
-    [object.saleId, object.productId, object.quantity],
-  );
+    [object.productId, object.quantity, object.saleId],
+    );
   return insertId;
 };
 
