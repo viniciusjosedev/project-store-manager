@@ -29,6 +29,13 @@ describe('All tests from productsModel', function () {
       expect(result).to.be.deep.equal(1)
     })
   })
+  describe('Tests from function updateProduct', function () {
+    it('Test with sucess', async function () {
+      sinon.stub(connection, 'execute').resolves([{ insertId: 1 }]);
+      const result = await productsModel.updateProduct({ name: 'teste' });
+      expect(result).to.be.deep.equal(1)
+    })
+  })
 })
 
 

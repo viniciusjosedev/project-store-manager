@@ -77,6 +77,25 @@ describe('All tests from productsController', function () {
       expect(result).to.be.deep.equal(resultFindByIdMock)
     })
   })
+  describe('Tests from function updateProduct', function () {
+    it('Test with sucess', async function () {
+      sinon.stub(productsService, 'updateProduct').resolves(resultFindByIdMock);
+      const req = {
+        body: { name: 'teste' },
+        params: 1,
+      };
+      const res = {
+        status: () => { },
+        json: () => { },
+      };
+
+      sinon.stub(res, 'status').returns(res);
+      sinon.stub(res, 'json').returns(resultFindByIdMock);
+
+      const result = await productsController.updateProduct(req, res);
+      expect(result).to.be.deep.equal(resultFindByIdMock)
+    })
+  })
 })
 
 
