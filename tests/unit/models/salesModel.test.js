@@ -13,4 +13,11 @@ describe('All tests from salesModel', function () {
       expect(result).to.be.equal(1)
     })
   })
+  describe('Tests from function deleteSales', function () {
+    it('Test with sucess', async function () {
+      sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }]);
+      const result = await salesModel.deleteSales(1);
+      expect(result).to.be.equal(1)
+    })
+  })
 })

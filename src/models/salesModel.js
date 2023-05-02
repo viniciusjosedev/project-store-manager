@@ -7,6 +7,14 @@ const insert = async () => {
   return insertId;
 };
 
+const deleteSales = async (id) => {
+  const [{ affectedRows }] = await connection.execute(
+    'DELETE FROM sales WHERE id = ?', [id],
+  );
+  return affectedRows;
+};
+
 module.exports = {
   insert,
+  deleteSales,
 };
