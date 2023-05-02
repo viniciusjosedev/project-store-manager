@@ -29,10 +29,16 @@ const deleteProduct = async (id) => {
   return affectRows;
 };
 
+const search = async (name) => {
+  const result = await productsModel.search(name);
+  return result;
+};
+
 module.exports = {
   findAll,
   findById,
   createProduct,
   updateProduct,
   deleteProduct,
+  search,
 };
