@@ -17,7 +17,8 @@ const createProduct = async (data) => {
 };
 
 const updateProduct = async (data) => {
-  await productsModel.updateProduct(data);
+  const affectRows = await productsModel.updateProduct(data);
+  if (affectRows === 0) return undefined;
   const result = await productsModel.findById(data.id);
   return result;
 };

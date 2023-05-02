@@ -21,7 +21,8 @@ const createProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
   const { body: { name }, params: { id } } = req;
   const result = await productsService.updateProduct({ name, id });
-  return res.status(201).json(result);
+  if (!result) return res.status(404).json({ message: 'Product not found' });
+  return res.status(200).json(result);
 };
 
 module.exports = {  

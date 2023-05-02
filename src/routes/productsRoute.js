@@ -12,4 +12,6 @@ route.get('/products/:id', productsController.findById);
 
 route.post('/products', validateCreateProduct, productsController.createProduct);
 
+route.put('/products/:id', validateCreateProduct, productsController.updateProduct);
+
 module.exports = route;

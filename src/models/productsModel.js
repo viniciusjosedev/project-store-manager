@@ -22,10 +22,10 @@ const createProduct = async ({ name }) => {
 };
 
 const updateProduct = async ({ id, name }) => {
-  const [{ insertId }] = await connection.execute(
+  const [{ affectedRows }] = await connection.execute(
     'UPDATE products SET name = ? WHERE id = ?', [name, id],
   );
-  return insertId;
+  return affectedRows;
 };
 
 module.exports = {
