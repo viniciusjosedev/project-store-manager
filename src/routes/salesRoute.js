@@ -8,6 +8,8 @@ const route = new Router();
 
 route.post('/sales', validateCreateSalesProducts, salesProductsController.insert);
 
+route.get('/sales', salesProductsController.findAll);
+
 route.get('/sales/:id', salesProductsController.findById);
 
 module.exports = route;

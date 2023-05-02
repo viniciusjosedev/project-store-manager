@@ -27,7 +27,7 @@ describe('All tests from salesProductsModel', function () {
     it('Test with sucess', async function () {
       sinon.stub(connection, 'execute').resolves([returnValuesFindAllMock]);
       const result = await salesProductsModel.findAll();
-      expect(result).to.be.equal(returnValuesFindAllMock)
+      expect(result).to.be.deep.equal(returnValuesFindAllMock)
     })
   })
 })

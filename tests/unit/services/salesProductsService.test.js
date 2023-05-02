@@ -25,4 +25,11 @@ describe('All tests from salesProductsService', function () {
       expect(result).to.be.deep.equal(resultFindByIdMock);
     })
   })
+  describe('Tests from function findAll', function () {
+    it('Test with sucess', async function () {
+      sinon.stub(salesProductsModel, 'findAll').resolves(resultFindByIdMock);
+      const result = await salesProductsService.findAll();
+      expect(result).to.be.deep.equal(resultFindByIdMock);
+    })
+  })
 })

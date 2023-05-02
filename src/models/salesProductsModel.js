@@ -26,9 +26,10 @@ const findAll = async () => {
   const [result] = await connection.execute(
     `SELECT sp.sale_id, sp.product_id, sp.quantity, s.date FROM sales_products sp 
     INNER JOIN sales s
-    ON sp.sale_id = s.id;`,
+    ON sp.sale_id = s.id
+    ORDER BY sp.sale_id, product_id;`,
   );
-  return result;
+  return camelize(result);
 };
 
 module.exports = {

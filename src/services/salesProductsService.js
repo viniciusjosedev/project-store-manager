@@ -19,7 +19,13 @@ const findById = async (id) => {
   return result;
 };
 
+const findAll = async () => {
+  const result = await salesProductsModel.findAll();
+  return result;
+};
+
 module.exports = {
   insert,
   findById,
+  findAll,
 };
