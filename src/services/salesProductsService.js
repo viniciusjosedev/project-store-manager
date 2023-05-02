@@ -24,8 +24,20 @@ const findAll = async () => {
   return result;
 };
 
+const update = async (data, saleId) => {
+  await salesProductsModel.deleteSalesProducts(saleId);
+  await Promise.all(data.map((e) => salesProductsModel.insert({ ...e, saleId })));
+  const result = await salesProductsModel.findById(saleId);
+  result.forEach((_e, i) => {
+    delete result[i].saleId;
+    delete result[i].date;
+  });
+  return { saleId, itemsUpdated: result };
+};
+
 module.exports = {
   insert,
   findById,
+  update,
   findAll,
 };

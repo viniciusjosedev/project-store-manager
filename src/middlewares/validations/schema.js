@@ -5,7 +5,7 @@ const bodyCreateProductSchema = Joi.object({
 });
 
 const bodyCreateSalesProductsSchema = Joi.object({
-  productId: Joi.number().required(),
+  productId: Joi.number().min(1).required(),
   quantity: Joi.number().min(1).required(),
 });
 

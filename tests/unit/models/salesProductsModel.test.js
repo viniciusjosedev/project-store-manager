@@ -30,4 +30,15 @@ describe('All tests from salesProductsModel', function () {
       expect(result).to.be.deep.equal(returnValuesFindAllMock)
     })
   })
+  describe('Tests from function update', function () {
+    it('Test with sucess', async function () {
+      sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }]);
+      const result = await salesProductsModel.update({
+        id: 1,
+        productId: 1,
+        quantity: 10,
+      });
+      expect(result).to.be.deep.equal(1)
+    })
+  })
 })

@@ -6,7 +6,8 @@ const { salesProductsService } = require('../../../src/services/index');
 
 const { resultSalesProductsService,
   resultFindByIdSalesProductsService,
-  resultFindAllSalesProductsService } = require('./mocks/salesProductsController');
+  resultFindAllSalesProductsService,
+  resultSalesProductsServiceUpdate } = require('./mocks/salesProductsController');
 
 describe('All tests from salesProductsController', function () {
   afterEach(() => sinon.restore());
@@ -89,6 +90,24 @@ describe('All tests from salesProductsController', function () {
       const result = await salesProductsController.findAll(req, res);
 
       expect(result).to.be.deep.equal(resultFindAllSalesProductsService)
+    })
+  })
+  describe('Tests from function update', function () {
+    it('Test with sucess', async function () {
+      sinon.stub(salesProductsService, 'update').resolves(resultSalesProductsServiceUpdate);
+
+      const req = {};
+      const res = {
+        status: () => { },
+        json: () => { },
+      };
+
+      sinon.stub(res, 'status').returns(res);
+      sinon.stub(res, 'json').returns(resultSalesProductsServiceUpdate);
+
+      const result = await salesProductsController.update(req, res);
+
+      expect(result).to.be.deep.equal(resultSalesProductsServiceUpdate)
     })
   })
 })

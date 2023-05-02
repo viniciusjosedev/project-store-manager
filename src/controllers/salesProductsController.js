@@ -18,8 +18,15 @@ const findAll = async (_req, res) => {
   return res.status(200).json(result);
 };
 
+const update = async (req, res) => {
+  const { body, params: { id } } = req;
+  const result = await salesProductsService.update(body, id);
+  return res.status(200).json(result);
+};
+
 module.exports = {
   insert,
   findById,
   findAll,
+  update,
 };

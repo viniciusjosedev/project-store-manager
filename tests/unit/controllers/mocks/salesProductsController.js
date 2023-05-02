@@ -6,6 +6,14 @@ const resultSalesProductsService = {
   ]
 };
 
+const resultSalesProductsServiceUpdate = {
+  "saleId": 1,
+  "itemsUpdated": [
+    { productId: 1, quantity: 5 },
+    { productId: 2, quantity: 10 }
+  ]
+};
+
 const resultFindByIdSalesProductsService = [
   { productId: 1, quantity: 5, date: '2022' },
   { productId: 2, quantity: 10, date: '2022' },
@@ -21,4 +29,5 @@ module.exports = {
   resultSalesProductsService,
   resultFindByIdSalesProductsService,
   resultFindAllSalesProductsService,
+  resultSalesProductsServiceUpdate,
 }

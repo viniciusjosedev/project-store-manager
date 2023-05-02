@@ -1,6 +1,7 @@
 const { Router } = require('express');
 
-const { validateCreateSalesProducts } = require('../middlewares/salesValidation');
+const { validateCreateSalesProducts,
+  validateUpdateSalesProducts } = require('../middlewares/salesValidation');
 
 const { salesProductsController, salesController } = require('../controllers/index');
 
@@ -13,5 +14,7 @@ route.get('/sales', salesProductsController.findAll);
 route.get('/sales/:id', salesProductsController.findById);
 
 route.delete('/sales/:id', salesController.deleteSales);
+
+route.put('/sales/:id', validateUpdateSalesProducts, salesProductsController.update);
 
 module.exports = route;

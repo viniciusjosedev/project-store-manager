@@ -23,16 +23,16 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3001/products",
-    "url": "http://localhost:3001/sales/",
-    "method": "POST",
+    "url": "http://localhost:3001/sales/555",
+    "method": "PUT",
     "sortNum": 0,
     "created": "2023-04-27T13:15:43.215Z",
-    "modified": "2023-05-02T02:42:35.535Z",
+    "modified": "2023-05-02T19:20:49.476Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 1\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 5\n  }\n]",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 0\n  },\n  {\n    \"productId\": 2,\n    \"quantity\": 555\n  }\n]",
       "form": []
     },
     "tests": []
