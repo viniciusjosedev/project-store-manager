@@ -14,4 +14,6 @@ route.post('/products', validateCreateProduct, productsController.createProduct)
 
 route.put('/products/:id', validateCreateProduct, productsController.updateProduct);
 
+route.delete('/products/:id', productsController.deleteProduct);
+
 module.exports = route;

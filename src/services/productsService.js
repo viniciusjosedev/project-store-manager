@@ -23,9 +23,16 @@ const updateProduct = async (data) => {
   return result;
 };
 
+const deleteProduct = async (id) => {
+  const affectRows = await productsModel.deleteProduct(id);
+  if (affectRows === 0) return undefined;
+  return affectRows;
+};
+
 module.exports = {
   findAll,
   findById,
   createProduct,
   updateProduct,
+  deleteProduct,
 };

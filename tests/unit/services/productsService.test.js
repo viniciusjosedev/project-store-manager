@@ -42,6 +42,23 @@ describe('All tests from productsService', function () {
       const result = await productsService.updateProduct(resultFindByIdMock);
       expect(result).to.be.deep.equal(resultFindByIdMock)
     })
+    it('Test with sucess', async function () {
+      sinon.stub(productsModel, 'updateProduct').resolves(0);
+      const result = await productsService.updateProduct(resultFindByIdMock);
+      expect(result).to.be.deep.equal(undefined)
+    })
+  })
+  describe('Tests from function deleteProduct', function () {
+    it('Test with sucess', async function () {
+      sinon.stub(productsModel, 'deleteProduct').resolves(1);
+      const result = await productsService.deleteProduct(1);
+      expect(result).to.be.deep.equal(1)
+    })
+    it('Test without sucess', async function () {
+      sinon.stub(productsModel, 'deleteProduct').resolves(0);
+      const result = await productsService.deleteProduct(1);
+      expect(result).to.be.deep.equal(undefined)
+    })
   })
 })
 

@@ -36,6 +36,13 @@ describe('All tests from productsModel', function () {
       expect(result).to.be.deep.equal(1)
     })
   })
+  describe('Tests from function deleteProduct', function () {
+    it('Test with sucess', async function () {
+      sinon.stub(connection, 'execute').resolves([{ affectedRows: 1 }]);
+      const result = await productsModel.deleteProduct(1);
+      expect(result).to.be.deep.equal(1)
+    })
+  })
 })
 
 
