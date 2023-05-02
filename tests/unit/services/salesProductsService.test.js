@@ -36,7 +36,9 @@ describe('All tests from salesProductsService', function () {
   describe('Tests from function update', function () {
     it('Test with sucess', async function () {
       sinon.stub(salesProductsModel, 'findById').resolves(resultFindByIdMockUpdate);
-      sinon.stub(salesProductsModel, 'update').resolves(1);
+      sinon.stub(salesModel, 'insert').resolves(1);
+      sinon.stub(salesProductsModel, 'deleteSalesProducts').resolves(null)
+      sinon.stub(salesProductsModel, 'insert').resolves(1);
       const result = await salesProductsService.update([{
         id: 1,
         productId: 1,
